@@ -15,7 +15,7 @@ public class Book implements InitializingBean, DisposableBean, BeanFactoryAware,
 
 	String bookName;
 
-	private Book() {
+	Book() {
 		System.out.println("----inside constructor------");
 	}
 
