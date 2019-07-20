@@ -26,6 +26,9 @@ public class Book implements InitializingBean, DisposableBean, BeanFactoryAware,
 		System.out.println("----inside constructor------");
 	}
 
+	public Book(int i, String string, int j, int k) {
+		
+	}
 	@Override
 	public void setBeanClassLoader(ClassLoader classLoader) {
 		System.out.println("----BeanClassLoaderAware.setBeanClassLoader------");
