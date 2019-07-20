@@ -1,4 +1,4 @@
-package com.arjun.spring;
+package com.arjun.spring.model;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,7 +15,7 @@ public class Book implements InitializingBean, DisposableBean, BeanFactoryAware,
 
 	String bookName;
 
-	Book() {
+	public Book() {
 		System.out.println("----inside constructor------");
 	}
 

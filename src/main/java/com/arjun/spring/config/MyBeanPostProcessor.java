@@ -1,4 +1,4 @@
-package com.arjun.spring;
+package com.arjun.spring.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
