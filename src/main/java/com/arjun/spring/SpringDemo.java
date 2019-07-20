@@ -19,6 +19,7 @@ import com.arjun.spring.bean.EmployeeProviderBean;
 import com.arjun.spring.bean.SalesEmployee;
 import com.arjun.spring.config.AppConfig;
 import com.arjun.spring.dao.VillageDAO;
+import com.arjun.spring.inheritance.Elephant;
 import com.arjun.spring.service.EmployeeService;
 import com.arjun.spring.service.IEmployeeService;
 import com.arjun.spring.service.MyEmployeeService;
@@ -27,21 +28,32 @@ import com.arjun.spring.service.MyEmployeeService;
 public class SpringDemo extends SpringBootServletInitializer {
 
 	// private static AbstractApplicationContext context;
-	
+
 	@Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SpringDemo.class);
-    }
-	
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(SpringDemo.class);
+	}
+
 	public static void main(String[] args) throws SQLException {
 		ApplicationContext context = SpringApplication.run(SpringDemo.class, args);
-		
-		//AbstractApplicationContext  context = new ClassPathXmlApplicationContext("app-conf.xml");
-		VillageDAO vill=(VillageDAO)context.getBean("villageDAO");
+
+		// AbstractApplicationContext context = new
+		// ClassPathXmlApplicationContext("app-conf.xml");
+		VillageDAO vill = (VillageDAO) context.getBean("villageDAO");
 		vill.save();
 		vill.selectFirstRow();
+
+		Elephant elephant = context.getBean(Elephant.class);
+		elephant.setAge(20);
+		elephant.setLocation("varanasi");
+		elephant.setName("Boss");
+		
+		System.out.println(elephant.getName());
+		System.out.println(elephant.getLocation());
+		System.out.println(elephant.getAge());
+
 	}
-	
+
 	/*
 	 * AbstractApplicationContext context = new
 	 * ClassPathXmlApplicationContext("spring-config.xml"); Book book =
