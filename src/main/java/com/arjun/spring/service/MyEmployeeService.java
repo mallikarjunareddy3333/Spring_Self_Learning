@@ -1,7 +1,9 @@
-package com.arjun.spring.bean;
+package com.arjun.spring.service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.arjun.spring.bean.Employee;
 
 @Named
 public class MyEmployeeService {

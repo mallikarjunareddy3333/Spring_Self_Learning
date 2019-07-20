@@ -7,11 +7,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.arjun.spring.bean.Book;
 import com.arjun.spring.bean.Employee;
 import com.arjun.spring.bean.EmployeeProviderBean;
-import com.arjun.spring.bean.IEmployeeService;
-import com.arjun.spring.bean.MyEmployeeService;
 import com.arjun.spring.bean.SalesEmployee;
 import com.arjun.spring.config.AppConfig;
 import com.arjun.spring.service.EmployeeService;
+import com.arjun.spring.service.IEmployeeService;
+import com.arjun.spring.service.MyEmployeeService;
 
 public class SpringDemo {
 
