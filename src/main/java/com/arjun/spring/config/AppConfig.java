@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.arjun.spring.model.Book;
+import com.arjun.spring.bean.Book;
 
 @Configuration
 @ComponentScan(basePackages="com.arjun.spring")

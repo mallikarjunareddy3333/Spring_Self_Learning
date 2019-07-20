@@ -3,7 +3,7 @@ package com.arjun.spring.service;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.arjun.spring.model.Employee;
+import com.arjun.spring.bean.Employee;
 
 @Named // @Component
 public class EmployeeService {

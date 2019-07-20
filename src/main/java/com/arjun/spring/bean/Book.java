@@ -1,4 +1,4 @@
-package com.arjun.spring.model;
+package com.arjun.spring.bean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
