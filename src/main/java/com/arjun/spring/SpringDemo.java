@@ -17,14 +17,14 @@ public class SpringDemo {
 
 	// private static AbstractApplicationContext context;
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 
-		/*
+		
 		 * AbstractApplicationContext context = new
 		 * ClassPathXmlApplicationContext("spring-config.xml"); Book book =
 		 * (Book)context.getBean("book"); System.out.println("Book Name:"+
 		 * book.getBookName()); context.registerShutdownHook();
-		 */
+		 
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.register(AppConfig.class);
@@ -52,5 +52,5 @@ public class SpringDemo {
 		context.close();
 
 	}
-
+*/
 }

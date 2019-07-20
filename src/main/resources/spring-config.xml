@@ -8,9 +8,50 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan
 		base-package="com.arjun.spring" />
-	<bean id="book" class="com.arjun.spring.model.Book"
-		init-method="myPostConstruct" destroy-method="myPreDestroy">
-		<property name="bookName" value="Mahabharat" />
+	<bean id="myCollection" class="com.arjun.spring.bean.MyCollection">
+	<!-- init-method="myPostConstruct" destroy-method="myPreDestroy" -->
+		<property name="myList">
+			<list>
+				<value>List Value one</value>
+				<value>List Value two</value>
+				<value>List Value three</value>
+			</list>
+		</property>
+		<property name="mySet">
+			<set>
+				<value>Set value 1</value>
+				<value>Set value 2</value>
+				<value>Set value 3</value>
+			</set>
+		</property>
+		<property name="myMap">
+			<map>
+				<entry key="0" value="Map Value A"></entry>
+				<entry key="1" value="Map Value B"></entry>
+				<entry key="2" value="Map Value C"></entry>
+			</map>
+		</property>
+		<property name="myProp">
+			<props>
+				<prop key="propKey1">Prop Value A</prop>
+				<prop key="propKey1">Prop Value B</prop>
+				<prop key="propKey1">Prop Value C</prop>
+			</props>
+		</property>
+		<property name="bookList">
+			<list>
+				<ref bean="book1"/>
+				<ref bean="book2"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="book1" class="com.arjun.spring.bean.Book">
+		<property name="bookId" value="100"/>
+    	<property name="bookName" value="Godan"/>
+	</bean>
+	<bean id="book2" class="com.arjun.spring.bean.Book">
+		<property name="bookId" value="200"/>
+    	<property name="bookName" value="Nirmla"/>
 	</bean>
 	<bean class="com.arjun.spring.config.MyBeanPostProcessor" />
 </beans>

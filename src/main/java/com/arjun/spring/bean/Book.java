@@ -13,7 +13,14 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class Book implements InitializingBean, DisposableBean, BeanFactoryAware, BeanNameAware, BeanClassLoaderAware {
 
-	String bookName;
+	private int bookId;
+	private String bookName;
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
 
 	public Book() {
 		System.out.println("----inside constructor------");
