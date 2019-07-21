@@ -13,6 +13,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import com.arjun.spring.bean.Book;
 import com.arjun.spring.bean.Employee;
@@ -28,6 +30,7 @@ import com.arjun.spring.service.MyEmployeeService;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
+@EnableScheduling
 public class SpringDemo extends SpringBootServletInitializer {
 
 	// private static AbstractApplicationContext context;
@@ -59,6 +62,11 @@ public class SpringDemo extends SpringBootServletInitializer {
 		System.out.println("Largest Area Book Name: " + bookService.largestAreaBookName());
 
 	}
+	
+	@Scheduled(fixedRate=1000)
+    public void doTask() {
+    	System.out.println("Do Task...");
+    }
 
 	/*
 	 * AbstractApplicationContext context = new
