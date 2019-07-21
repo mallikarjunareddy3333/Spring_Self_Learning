@@ -1,5 +1,6 @@
 package com.arjun.spring;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import org.springframework.boot.SpringApplication;
@@ -23,6 +24,8 @@ import com.arjun.spring.bean.SalesEmployee;
 import com.arjun.spring.config.AppConfig;
 import com.arjun.spring.dao.VillageDAO;
 import com.arjun.spring.inheritance.Elephant;
+import com.arjun.spring.marshaling.Converter;
+import com.arjun.spring.marshaling.Country;
 import com.arjun.spring.service.BookService;
 import com.arjun.spring.service.EmployeeService;
 import com.arjun.spring.service.IEmployeeService;
@@ -40,7 +43,7 @@ public class SpringDemo extends SpringBootServletInitializer {
 		return application.sources(SpringDemo.class);
 	}
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, IOException {
 		ApplicationContext context = SpringApplication.run(SpringDemo.class, args);
 
 		// AbstractApplicationContext context = new
@@ -53,20 +56,33 @@ public class SpringDemo extends SpringBootServletInitializer {
 		elephant.setAge(20);
 		elephant.setLocation("varanasi");
 		elephant.setName("Boss");
-		
+
 		System.out.println(elephant.getName());
 		System.out.println(elephant.getLocation());
 		System.out.println(elephant.getAge());
-		
+
 		BookService bookService = context.getBean(BookService.class);
 		System.out.println("Largest Area Book Name: " + bookService.largestAreaBookName());
 
+		Converter converter = context.getBean(Converter.class);
+		// Perform Marshaling
+		Country country = new Country();
+		country.setId(100);
+		country.setCountryName("India");
+		country.setPmName("ABC");
+		//converter.doMarshaling("country.xml", country);
+		System.out.println("Marshaling performed");
+		// Perform UnMarshaling
+		//country = (Country) converter.doUnMarshaling("country.xml");
+		System.out.println(
+				"After UnMarshaling Data is: id:" + country.getId() + ", CountryName:" + country.getCountryName());
+
 	}
-	
-	@Scheduled(fixedRate=1000)
-    public void doTask() {
-    	System.out.println("Do Task...");
-    }
+
+	@Scheduled(fixedRate = 1000)
+	public void doTask() {
+		System.out.println("Do Task...");
+	}
 
 	/*
 	 * AbstractApplicationContext context = new
