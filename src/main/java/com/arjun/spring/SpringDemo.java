@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 //import org.springframework.context.support.AbstractApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -20,11 +21,13 @@ import com.arjun.spring.bean.SalesEmployee;
 import com.arjun.spring.config.AppConfig;
 import com.arjun.spring.dao.VillageDAO;
 import com.arjun.spring.inheritance.Elephant;
+import com.arjun.spring.service.BookService;
 import com.arjun.spring.service.EmployeeService;
 import com.arjun.spring.service.IEmployeeService;
 import com.arjun.spring.service.MyEmployeeService;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class SpringDemo extends SpringBootServletInitializer {
 
 	// private static AbstractApplicationContext context;
@@ -51,6 +54,9 @@ public class SpringDemo extends SpringBootServletInitializer {
 		System.out.println(elephant.getName());
 		System.out.println(elephant.getLocation());
 		System.out.println(elephant.getAge());
+		
+		BookService bookService = context.getBean(BookService.class);
+		System.out.println("Largest Area Book Name: " + bookService.largestAreaBookName());
 
 	}
 
